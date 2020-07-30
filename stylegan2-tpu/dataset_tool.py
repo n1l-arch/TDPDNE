@@ -18,6 +18,7 @@ import numpy as np
 import tensorflow as tf
 import PIL.Image
 import dnnlib.tflib as tflib
+from tqdm import tqdm
 
 from training import dataset
 
@@ -63,8 +64,6 @@ class TFRecordExporter:
         return order
 
     def add_image(self, img):
-        if self.print_progress and self.cur_images % self.progress_interval == 0:
-            print('%d / %d\r' % (self.cur_images, self.expected_images), end='', flush=True)
         if self.shape is None:
             self.shape = img.shape
             self.resolution_log2 = int(np.log2(self.shape[1]))
@@ -522,9 +521,7 @@ def create_from_images(tfrecord_dir, image_dir, shuffle, res_log2=7, resize=None
     with TFRecordExporter(tfrecord_dir, max_images) as tfr:
         order = tfr.choose_shuffled_order() if shuffle else np.arange(len(image_filenames))
         print("Adding the images to tfrecords ...")
-        for idx in range(order.size):
-            if idx % 10000 == 0:
-                print ("added images", idx)
+        for idx in tqdm(range(order.size)):
             if resize == None:
                 img = np.asarray(PIL.Image.open(image_filenames[order[idx]]).convert('RGB'))
             else:
