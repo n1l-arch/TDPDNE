@@ -1,19 +1,24 @@
 # TDPDNE
 A StyleGAN2 model to make AI generated dicks
 
-Website: [https://thisdickpicdoesnotexist.com/](https://thisdickpicdoesnotexist.com/)
+#### Website
 
-Demo Notebook: [Google Colab](https://colab.research.google.com/drive/1DoCxr2pYlxCRv6RmITtFWahVXsbTexYp?usp=sharing)
+[https://thisdickpicdoesnotexist.com/](https://thisdickpicdoesnotexist.com/)
 
-This project was based off of [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/) but with dicks.
+#### Make your own dicks
 
-StyleGAN2 Paper: [https://arxiv.org/pdf/1912.04958.pdf](https://arxiv.org/pdf/1912.04958.pdf)
+[Google Colab](https://colab.research.google.com/drive/1DoCxr2pYlxCRv6RmITtFWahVXsbTexYp?usp=sharing)
 
-StyleGAN2 Repo: [https://github.com/NVlabs/stylegan2](https://github.com/NVlabs/stylegan2)
+#### Inspiration
+
+* [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/)
+* Too many women asking for my dick pics, now I can send these instead
+* StyleGAN2 Paper: [https://arxiv.org/pdf/1912.04958.pdf](https://arxiv.org/pdf/1912.04958.pdf)
+* StyleGAN2 Repo: [https://github.com/NVlabs/stylegan2](https://github.com/NVlabs/stylegan2)
 
 ## Model Details
 
-42273 dick pics were scraped from Reddit that were posted on these subreddits
+42,273 dick pics were scraped from Reddit that were posted on these subreddits
 
 * r/penis
 * r/cock
@@ -26,7 +31,7 @@ The scraping procedure was done by first [downloading all submissions](https://f
 
 A model was created with these images, but the model suffered from mode collapse. The solution was to train a custom Mask-RCNN model to segment the penis. With this segmentation, PCA was used to find the tilt, then rotate so the penis was vertical (in `Image Processor/align_images.py`). However this results in some penises being upside down. A possible improvement could be training another Mask R-CNN to detect the head of the penis and make sure that is always at the top half of the image.
 
-The training was done using a TPU v3-8 trained for ~9 days (25000 KImg). Gamma was started at 100 and decreased by 25 each 10,000 KImg. The resulting model still suffers from some mode collapse as the generated dicks seen on [https://thisdickpicdoesnotexist.com/](https://thisdickpicdoesnotexist.com/) are lacking of the African American variety. This was found to be surprising as there were many coloured dicks in the dataset.
+The training was done using a TPU v3-8 trained for ~9 days (25,000 KImg). Gamma was started at 100 and decreased by 25 each 10,000 KImg. The resulting model still suffers from some mode collapse as the generated dicks seen on [https://thisdickpicdoesnotexist.com/](https://thisdickpicdoesnotexist.com/) are lacking of the African American variety. This was found to be surprising as there were many coloured dicks in the dataset.
 
 The generated dicks on [https://thisdickpicdoesnotexist.com/](https://thisdickpicdoesnotexist.com/) used a truncation_psi of 0.7.
 
