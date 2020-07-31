@@ -29,7 +29,7 @@ A StyleGAN2 model to make AI generated dicks
 
 The scraping procedure was done by first [downloading all submissions](https://files.pushshift.io/reddit/submissions/) from the year 2018. These submissions were then filtered down to image submissions in the above subreddits. Since pushshift only stores the image URLs, these images were then fetched from reddit using the stored URL.
 
-A model was created with these images, but the model suffered from mode collapse. The solution was to train a custom Mask-RCNN model to segment the penis. With this segmentation, PCA was used to find the tilt, then rotate so the penis was vertical (in `Image Processor/align_images.py`). However this results in some penises being upside down. A possible improvement could be training another Mask R-CNN to detect the head of the penis and make sure that is always at the top half of the image.
+A model was created with these images, but the model suffered from mode collapse. The solution was to train a custom Mask-RCNN model (in `Image Processor/Dick_Pic_Mask-RCNN_Trainer.ipynb`) to segment the penis. With this segmentation, PCA was used to find the tilt, then rotate so the penis was vertical (in `Image Processor/align_images.py`). However this results in some penises being upside down. A possible improvement could be training another Mask R-CNN to detect the head of the penis and make sure that is always at the top half of the image.
 
 The training was done using a TPU v3-8 trained for ~9 days (25,000 KImg). Gamma was started at 100 and decreased by 25 each 10,000 KImg. The resulting model still suffers from some mode collapse as the generated dicks seen on [https://thisdickpicdoesnotexist.com/](https://thisdickpicdoesnotexist.com/) are lacking of the African American variety. This was found to be surprising as there were many coloured dicks in the dataset.
 
@@ -41,7 +41,7 @@ The generated dicks on [https://thisdickpicdoesnotexist.com/](https://thisdickpi
 
 ### Download the dataset
 
-1. [Here]()
+1. [Here](https://mega.nz/file/f91lBAzA)
 
 2. Unzip the tarball and place in the root directory of the repo
 
@@ -59,7 +59,7 @@ The generated dicks on [https://thisdickpicdoesnotexist.com/](https://thisdickpi
 
 ### Get a Google Compute Platform TPU instance
 
-1. Apply for [TFRC] (https://www.tensorflow.org/tfrc) if you haven't already
+1. Apply for [TFRC](https://www.tensorflow.org/tfrc) if you haven't already
 
 2. Start the instance
 
@@ -83,7 +83,7 @@ The generated dicks on [https://thisdickpicdoesnotexist.com/](https://thisdickpi
 
 2. Train the model
 
-`stylegan2-tpu/run_training.py --result-dir=gs://your-gcp-bucket/model --data-dir=dataset --dataset=aligned_images --config=config-f --num-gpus=8 --mirror-augment=true`
+`stylegan2-tpu/run_training.py --result-dir=gs://your-gcp-bucket/model --data-dir=dataset --dataset=aligned_images_tfrecords_dir --config=config-f --num-gpus=8 --mirror-augment=true`
 
 ### Generate Dicks
 
