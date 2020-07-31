@@ -41,7 +41,7 @@ The generated dicks on [https://thisdickpicdoesnotexist.com/](https://thisdickpi
 
 ### Download the dataset
 
-1. [Here](https://mega.nz/file/f91lBAzA)
+1. [Here](https://mega.nz/file/f91lBAzA#1wvrbxh89bJ8MAUiGjHwIZnZ97P8vzflQJaBL_ALpeM)
 
 2. Unzip the tarball and place in the root directory of the repo
 
