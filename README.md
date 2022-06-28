@@ -41,9 +41,10 @@ The generated dicks on [https://thisdickpicdoesnotexist.com/](https://thisdickpi
 
 ### Download the dataset
 
-1. [Here](https://mega.nz/file/f91lBAzA#1wvrbxh89bJ8MAUiGjHwIZnZ97P8vzflQJaBL_ALpeM)
+1. [Part 1](https://mega.nz/file/a34mnK6b#l79iThXONpdVif500ZOl7y6CDktw3Mvvd6XQLgkbWjc) | 
+   [Part 2](https://mega.nz/file/iWIjGSYA#Bdgdt0ASNe1ICbuEPOPElQUTCyrLqL5_klET2njYy6w)
 
-2. Unzip the tarball and place in the root directory of the repo
+2. Unzip archives and place in the root directory of the repo
 
 2. Tell all your friends you have more dick pics on your computer than them
 
