@@ -18,7 +18,7 @@ A StyleGAN2 model to make AI generated dicks
 
 ## Model Details
 
-42,273 dick pics were scraped from Reddit that were posted on these subreddits
+44,029 dick pics were scraped from Reddit that were posted on these subreddits
 
 * r/penis
 * r/cock
